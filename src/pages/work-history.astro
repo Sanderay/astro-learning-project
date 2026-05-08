@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const pageTitle = "Work History";
+
+const workExperience = [
+  {
+    company: "World Wide Technology",
+    position: "Senior Software Engineer",
+    duration: "2015 - Present",
+    description: "Building and maintaining enterprise software solutions"
+  }
+];
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <h1>{pageTitle}</h1>
+    
+    {workExperience.map((job) => (
+      <div class="job-entry">
+        <h2>{job.position}</h2>
+        <h3>{job.company}</h3>
+        <p class="duration">{job.duration}</p>
+        <p>{job.description}</p>
+      </div>
+    ))}
+  </main>
+</Layout>
+
+<style>
+  .job-entry {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 4px solid rgb(var(--accent));
+  }
+  
+  .job-entry h2 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .job-entry h3 {
+    margin: 0 0 0.5rem 0;
+    color: rgb(var(--accent));
+  }
+  
+  .duration {
+    font-weight: bold;
+    color: rgb(var(--accent-dark));
+  }
+</style>
