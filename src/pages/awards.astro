@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const pageTitle = "Awards";
+const awards = [
+    {
+        title: "Leading with Excellence",
+        year: 2024,
+        description: "Recognition for outstanding leadership and commitment to excellence"
+    }
+];
+---
+<Layout title={pageTitle}>
+    <main>
+        <h1>{pageTitle}</h1>
+        <p>A running list of awards and recognition I have received throughout my career.</p>
+        
+        <section>
+            <h2>Career Awards</h2>
+            {awards.length > 0 ? (
+                <ul>
+                    {awards.map((award) => (
+                        <li>
+                            <strong>{award.title}</strong> ({award.year})
+                            <p>{award.description}</p>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>No awards listed yet.</p>
+            )}
+        </section>
+    </main>
+</Layout>
