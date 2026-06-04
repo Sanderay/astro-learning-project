@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+
+const pageTitle = "Ray Sanders";
+
+const profile = {
+  name: "Ray Sanders",
+  role: "Lead Software Engineer",
+  timeAtWWT: "11 Years",
+  company: "World Wide Technology"
+};
+---
+
+<Layout title={pageTitle}>
+  <main>
+    <h1>{profile.name}</h1>
+    
+    <div class="profile-card">
+      <div class="profile-detail">
+        <h2>Role</h2>
+        <p>{profile.role}</p>
+      </div>
+      
+      <div class="profile-detail">
+        <h2>Company</h2>
+        <p>{profile.company}</p>
+      </div>
+      
+      <div class="profile-detail">
+        <h2>Time at WWT</h2>
+        <p>{profile.timeAtWWT}</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: rgb(var(--accent));
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .profile-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .profile-detail {
+    padding: 1.5rem;
+    border: 2px solid rgb(var(--accent));
+    border-radius: 8px;
+    background-color: rgba(var(--accent-light), 0.1);
+  }
+
+  .profile-detail h2 {
+    margin: 0 0 1rem 0;
+    color: rgb(var(--accent-dark));
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .profile-detail p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+  }
+</style>
